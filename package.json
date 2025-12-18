@@ -1,0 +1,50 @@
+{
+  "name": "ferret",
+  "description": "A simple and clean network inspector for JSON responses.",
+  "author": "Kaden Barlow <kadenbarlow@gmail.com> (https://kadenbarlow.dev)",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kadenbarlow/ferret.git"
+  },
+  "keywords": [
+    "ajax",
+    "chrome",
+    "extension",
+    "inspector",
+    "json",
+    "network"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev:extension": "vite build --watch",
+    "dev:server": "vite",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-perfectionist": "^5.0.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "vite": "^7.2.4",
+    "vite-plugin-static-copy": "^3.1.4"
+  }
+}

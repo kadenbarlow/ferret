@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Ferret",
+  "version": "0.1.0",
+  "description": "A simple and clean network inspector for JSON responses.",
+  "action": {},
+  "devtools_page": "devtools.html",
+  "icons": {},
+  "permissions": []
+}
