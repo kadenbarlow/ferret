@@ -1,0 +1,25 @@
+.request-list {
+  table-layout: auto;
+  width: 100%;
+}
+
+.request {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px;
+}
+
+.request-even {
+  background-color: #1e1e1e;
+}
+
+.request-list-column {
+  padding: 4px;
+  white-space: nowrap;
+}
+
+.request-list-header {
+  font-weight: 700;
+  text-align: left;
+  padding-left: 4px;
+}

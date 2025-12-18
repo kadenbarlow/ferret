@@ -1,0 +1,13 @@
+.requests-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.request-list-container {
+  width: 25%;
+}
+
+.request-details-container {
+  flex: 1;
+}

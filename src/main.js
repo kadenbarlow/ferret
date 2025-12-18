@@ -8,6 +8,7 @@ chrome.devtools.panels.create("Ferret", null, "index.html", (panel) => {
             payload: {
               body: body,
               method: request.request.method,
+              size: request.request.bodySize,
               status: request.response.status,
               time: request.time,
               url: request.request.url,
