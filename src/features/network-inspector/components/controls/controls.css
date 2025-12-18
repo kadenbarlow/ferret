@@ -1,0 +1,7 @@
+.controls-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+}

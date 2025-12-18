@@ -1,3 +1,4 @@
+import path from "path"
 import { defineConfig } from "vite"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 import react from "@vitejs/plugin-react-swc"
@@ -14,4 +15,9 @@ export default defineConfig({
       ],
     }),
   ],
+  resolve: {
+    alias: {
+      "#library": path.resolve(__dirname, "./src/library"),
+    },
+  },
 })
