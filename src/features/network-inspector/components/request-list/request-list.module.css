@@ -1,13 +1,20 @@
 .table {
+  border-collapse: collapse;
   table-layout: auto;
   width: 100%;
 }
 
+.headers {
+  border-bottom: 1px solid #4f4f4f;
+}
+
 .header {
+  border-left: 1px solid #4f4f4f;
+  border-right: 1px solid #4f4f4f;
   font-size: 14px;
   font-weight: 700;
+  padding: 8px;
   text-align: left;
-  padding-left: 4px;
 }
 
 .row {
@@ -16,8 +23,11 @@
   padding: 8px;
 }
 
+.row:hover {
+  cursor: pointer;
+}
+
 .column {
-  max-width: 25vw;
   overflow: hidden;
   padding: 8px;
   text-overflow: ellipsis;
@@ -30,4 +40,14 @@
 
 .collapsed {
   max-width: 15vw;
+}
+
+.expanded {
+  width: 50vw;
+  max-width: 50vw;
+}
+
+.selected {
+  background-color: #2563eb;
+  font-weight: 700;
 }

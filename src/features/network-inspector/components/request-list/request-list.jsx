@@ -2,13 +2,13 @@ import classnames from "#library/css/classnames"
 import styles from "./request-list.module.css"
 
 export default function RequestList(props) {
-  const { collapsed, requests, setSelectedRequest } = props
+  const { collapsed, requests, selectedRequest, setSelectedRequest } = props
 
   if (!requests.length) return <></>
 
   return (
     <table className={styles.table}>
-      <thead className={styles.row}>
+      <thead className={classnames([styles.headers, styles.row])}>
         <tr>
           <th className={styles.header}>URL</th>
           {!collapsed && <th className={styles.header}>Status</th>}
@@ -21,10 +21,19 @@ export default function RequestList(props) {
         {requests.map((request, index) => (
           <tr
             key={index}
-            className={classnames({ [index % 2 !== 0]: styles.darken, [true]: styles.row })}
+            className={classnames({ [styles.darken]: index % 2 === 0, [styles.row]: true })}
             onClick={() => setSelectedRequest(request)}
           >
-            <td className={classnames({ [collapsed]: styles.collapsed, [true]: styles.column })}>{request.url}</td>
+            <td
+              className={classnames({
+                [styles.collapsed]: collapsed,
+                [styles.column]: true,
+                [styles.expanded]: !collapsed,
+                [styles.selected]: request.id === selectedRequest?.id,
+              })}
+            >
+              {request.url}
+            </td>
             {!collapsed && <td className={styles.column}>{request.status}</td>}
             {!collapsed && <td className={styles.column}>{request.method}</td>}
             {!collapsed && <td className={styles.column}>{request.size}</td>}

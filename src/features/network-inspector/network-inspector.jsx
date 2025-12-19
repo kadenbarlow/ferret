@@ -8,7 +8,7 @@ export default function NetworkInspector() {
   const { actions, state } = useController()
 
   return (
-    <div>
+    <div className={styles.root}>
       <Controls
         clearRequests={actions.clearRequests}
         isInvertEnabled={state.isInvertEnabled}
@@ -23,6 +23,7 @@ export default function NetworkInspector() {
           <RequestList
             collapsed={!!state.selectedRequest}
             requests={state.requests}
+            selectedRequest={state.selectedRequest}
             setSelectedRequest={actions.setSelectedRequest}
           />
         </div>

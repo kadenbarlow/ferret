@@ -1,8 +1,12 @@
+.button {
+  padding: 6px;
+}
+
 .tabs {
   display: flex;
   flex-direction: row;
-  gap: 16px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
+  border-bottom: 1px solid #4f4f4f;
 }

@@ -1,6 +1,8 @@
 export default function classnames(classes) {
+  if (Array.isArray(classes)) return classes.filter(Boolean).join(" ")
+
   return Object.entries(classes)
-    .filter(([condition]) => condition)
-    .map(([_, className]) => className)
+    .filter(([_className, condition]) => condition)
+    .map(([className]) => className)
     .join(" ")
 }

@@ -6,12 +6,7 @@ export default function useController() {
   const [isInvertEnabled, setIsInvertEnabled] = useState(false)
   const [isPreserveLogEnabled, _setIsPreserveLogEnabled] = useState(localIsPreserveLogEnabled)
   const [isRegexEnabled, setIsRegexEnabled] = useState(false)
-  const [requests, _setRequests] = useState([
-    { method: "OPTIONS", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
-    { method: "GET", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
-    { method: "POST", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
-    { method: "DELETE", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
-  ])
+  const [requests, _setRequests] = useState([])
   const [selectedRequest, setSelectedRequest] = useState(null)
 
   useEffect(

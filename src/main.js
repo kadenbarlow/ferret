@@ -6,6 +6,7 @@ chrome.devtools.panels.create("Ferret", null, "index.html", (panel) => {
         request.getContent((body) => {
           window.postMessage({
             payload: {
+              id: crypto.randomUUID(),
               method: request.request.method,
               postData: request.request.postData?.text || null,
               requestHeaders: request.request.headers || {},

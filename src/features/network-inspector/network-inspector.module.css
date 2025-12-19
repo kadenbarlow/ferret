@@ -1,7 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .requests {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  flex: 1;
+  min-height: 0;
 }
 
 .requestList {
@@ -12,5 +20,5 @@
 .requestDetails {
   flex: 4;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
