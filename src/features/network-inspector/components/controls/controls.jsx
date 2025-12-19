@@ -7,6 +7,7 @@ import styles from "./controls.module.css"
 export default function Controls(props) {
   const {
     clearRequests,
+    filterRequests,
     isInvertEnabled,
     isPreserveLogEnabled,
     isRegexEnabled,
@@ -18,7 +19,7 @@ export default function Controls(props) {
   return (
     <div className={styles.controls}>
       <Button icon={NoSymbolIcon} onClick={clearRequests} />
-      <Searchbar placeholder={"Search"} />
+      <Searchbar filterRequests={filterRequests} placeholder={"Search"} />
       <Checkbox label={"Invert"} name={"invert"} onChange={setIsInvertEnabled} value={isInvertEnabled} />
       <Checkbox label={"Regex"} name={"regex"} onChange={setIsRegexEnabled} value={isRegexEnabled} />
       <Checkbox

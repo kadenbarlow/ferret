@@ -11,6 +11,7 @@ export default function NetworkInspector() {
     <div className={styles.root}>
       <Controls
         clearRequests={actions.clearRequests}
+        filterRequests={actions.filterRequests}
         isInvertEnabled={state.isInvertEnabled}
         isPreserveLogEnabled={state.isPreserveLogEnabled}
         isRegexEnabled={state.isRegexEnabled}

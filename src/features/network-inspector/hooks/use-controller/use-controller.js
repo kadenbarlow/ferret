@@ -34,10 +34,13 @@ export default function useController() {
     localStorage.setItem("isPreserveLogEnabled", enabled)
   }
 
+  const filterRequests = (value) => console.log(value)
+
   return {
     actions: {
       clearRequests,
       clearSelectedRequest,
+      filterRequests,
       setIsInvertEnabled,
       setIsPreserveLogEnabled,
       setIsRegexEnabled,
