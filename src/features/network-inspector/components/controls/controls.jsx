@@ -2,7 +2,7 @@ import NoSymbolIcon from "#library/icons/no-symbol-icon"
 import Button from "./components/button/button"
 import Checkbox from "./components/checkbox/checkbox"
 import Searchbar from "./components/searchbar/searchbar"
-import "./controls.css"
+import styles from "./controls.module.css"
 
 export default function Controls(props) {
   const {
@@ -16,7 +16,7 @@ export default function Controls(props) {
   } = props
 
   return (
-    <div className="controls-container">
+    <div className={styles.controls}>
       <Button icon={NoSymbolIcon} onClick={clearRequests} />
       <Searchbar placeholder={"Search"} />
       <Checkbox label={"Invert"} name={"invert"} onChange={setIsInvertEnabled} value={isInvertEnabled} />

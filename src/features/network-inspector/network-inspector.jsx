@@ -2,7 +2,7 @@ import Controls from "./components/controls/controls"
 import RequestDetails from "./components/request-details/request-details"
 import RequestList from "./components/request-list/request-list"
 import useController from "./hooks/use-controller/use-controller"
-import "./network-inspector.css"
+import styles from "./network-inspector.module.css"
 
 export default function NetworkInspector() {
   const { actions, state } = useController()
@@ -18,8 +18,8 @@ export default function NetworkInspector() {
         setIsPreserveLogEnabled={actions.setIsPreserveLogEnabled}
         setIsRegexEnabled={actions.setIsRegexEnabled}
       />
-      <div className="requests-container">
-        <div className="request-list-container">
+      <div className={styles.requests}>
+        <div className={styles.requestList}>
           <RequestList
             collapsed={!!state.selectedRequest}
             requests={state.requests}
@@ -27,7 +27,7 @@ export default function NetworkInspector() {
           />
         </div>
         {state.selectedRequest && (
-          <div className="request-details-container">
+          <div className={styles.requestDetails}>
             <RequestDetails request={state.selectedRequest} />
           </div>
         )}

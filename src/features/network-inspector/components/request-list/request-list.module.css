@@ -1,0 +1,32 @@
+.table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.header {
+  font-weight: 700;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.row {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px;
+}
+
+.column {
+  max-width: 25vw;
+  overflow: hidden;
+  padding: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.darken {
+  background-color: #1e1e1e;
+}
+
+.collapsed {
+  max-width: 15vw;
+}

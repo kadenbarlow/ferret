@@ -1,11 +1,11 @@
-.button-container {
+.button {
   display: flex;
   align-items: center;
   padding: 4px;
   border-radius: 2px;
 }
 
-.button-container:hover {
+.button:hover {
   cursor: pointer;
   opacity: 0.8;
   background-color: #4f4f4f;

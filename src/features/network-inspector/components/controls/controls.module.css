@@ -1,4 +1,4 @@
-.controls-container {
+.controls {
   display: flex;
   flex-direction: row;
   gap: 8px;

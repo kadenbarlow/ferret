@@ -1,4 +1,5 @@
-import "./request-list.css"
+import classnames from "#library/css/classnames"
+import styles from "./request-list.module.css"
 
 export default function RequestList(props) {
   const { collapsed, requests, setSelectedRequest } = props
@@ -6,25 +7,28 @@ export default function RequestList(props) {
   if (!requests.length) return <></>
 
   return (
-    <table className="request-list">
-      <thead className="request">
-        <th className="request-list-header">URL</th>
-        {!collapsed && <th className="request-list-header">Status</th>}
-        {!collapsed && <th className="request-list-header">Method</th>}
-        {!collapsed && <th className="request-list-header">Size</th>}
-        {!collapsed && <th className="request-list-header">Time</th>}
+    <table className={styles.table}>
+      <thead className={styles.row}>
+        <tr>
+          <th className={styles.header}>URL</th>
+          {!collapsed && <th className={styles.header}>Status</th>}
+          {!collapsed && <th className={styles.header}>Method</th>}
+          {!collapsed && <th className={styles.header}>Size</th>}
+          {!collapsed && <th className={styles.header}>Time</th>}
+        </tr>
       </thead>
-      <tbody className="requests">
+      <tbody>
         {requests.map((request, index) => (
           <tr
-            className={`request ${index % 2 === 0 ? "request-even" : "request-odd"}`}
+            key={index}
+            className={classnames({ [index % 2 !== 0]: styles.darken, [true]: styles.row })}
             onClick={() => setSelectedRequest(request)}
           >
-            <td className={`request-list-column ${collapsed ? "request-list-column-collapsed" : ""}`}>{request.url}</td>
-            {!collapsed && <td className="request-list-column">{request.status}</td>}
-            {!collapsed && <td className="request-list-column">{request.method}</td>}
-            {!collapsed && <td className="request-list-column">{request.size}</td>}
-            {!collapsed && <td className="request-list-column">{request.time}</td>}
+            <td className={classnames({ [collapsed]: styles.collapsed, [true]: styles.column })}>{request.url}</td>
+            {!collapsed && <td className={styles.column}>{request.status}</td>}
+            {!collapsed && <td className={styles.column}>{request.method}</td>}
+            {!collapsed && <td className={styles.column}>{request.size}</td>}
+            {!collapsed && <td className={styles.column}>{request.time}</td>}
           </tr>
         ))}
       </tbody>

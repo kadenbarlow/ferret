@@ -1,15 +1,15 @@
-.requests-container {
+.requests {
   display: flex;
   flex-direction: row;
   gap: 16px;
 }
 
-.request-list-container {
+.requestList {
   width: 100%;
   flex: 1;
 }
 
-.request-details-container {
+.requestDetails {
   flex: 4;
   width: 100%;
   overflow: hidden;

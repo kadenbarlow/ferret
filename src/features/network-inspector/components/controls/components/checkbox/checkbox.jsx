@@ -1,20 +1,20 @@
-import "./checkbox.css"
+import styles from "./checkbox.module.css"
 
 export default function Checkbox(props) {
   const { label, name, onChange, value } = props
   const id = `checkbox-${name}`
 
   return (
-    <div className="checkbox-container">
+    <div className={styles.container}>
       <input
         id={id}
-        className="checkbox-input"
+        className={styles.input}
         defaultChecked={value}
         name={name}
         onChange={(e) => onChange(e.target.checked)}
         type="checkbox"
       />
-      <label className="checkbox-label" for={id}>
+      <label className={styles.label} htmlFor={id}>
         {label}
       </label>
     </div>
