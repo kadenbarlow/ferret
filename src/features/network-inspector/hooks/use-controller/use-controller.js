@@ -32,6 +32,8 @@ export default function useController() {
     setSelectedRequest(null)
   }
 
+  const clearSelectedRequest = () => setSelectedRequest(null)
+
   const setIsPreserveLogEnabled = (enabled) => {
     _setIsPreserveLogEnabled(enabled)
     localStorage.setItem("isPreserveLogEnabled", enabled)
@@ -40,6 +42,7 @@ export default function useController() {
   return {
     actions: {
       clearRequests,
+      clearSelectedRequest,
       setIsInvertEnabled,
       setIsPreserveLogEnabled,
       setIsRegexEnabled,

@@ -1,5 +1,19 @@
-export default function RequestDetails(props) {
-  const { request } = props
+import Headers from "./components/headers/headers"
+import Request from "./components/request/request"
+import Response from "./components/response/response"
+import Tabs from "./components/tabs/tabs"
+import useController from "./hooks/use-controller/use-controller"
 
-  return <div>{JSON.stringify(request, null, 2)}</div>
+export default function RequestDetails(props) {
+  const { clearSelectedRequest, request } = props
+  const { actions, state } = useController()
+
+  return (
+    <div>
+      <Tabs clearSelectedRequest={clearSelectedRequest} setActiveTab={actions.setActiveTab} tabs={state.tabs} />
+      {state.activeTab === state.tabs.headers && <Headers request={request} />}
+      {state.activeTab === state.tabs.request && <Request request={request} />}
+      {state.activeTab === state.tabs.response && <Response request={request} />}
+    </div>
+  )
 }

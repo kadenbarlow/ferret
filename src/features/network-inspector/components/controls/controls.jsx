@@ -1,5 +1,5 @@
+import Button from "#library/components/button/button"
 import NoSymbolIcon from "#library/icons/no-symbol-icon"
-import Button from "./components/button/button"
 import Checkbox from "./components/checkbox/checkbox"
 import Searchbar from "./components/searchbar/searchbar"
 import styles from "./controls.module.css"
