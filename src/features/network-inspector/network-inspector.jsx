@@ -6,27 +6,31 @@ import "./network-inspector.css"
 
 export default function NetworkInspector() {
   const { actions, state } = useController()
-  const { clearRequests, setIsInvertEnabled, setIsPreserveLogEnabled, setIsRegexEnabled } = actions
-  const { isInvertEnabled, isPreserveLogEnabled, isRegexEnabled, requests } = state
 
   return (
     <div>
       <Controls
-        clearRequests={clearRequests}
-        isInvertEnabled={isInvertEnabled}
-        isPreserveLogEnabled={isPreserveLogEnabled}
-        isRegexEnabled={isRegexEnabled}
-        setIsInvertEnabled={setIsInvertEnabled}
-        setIsPreserveLogEnabled={setIsPreserveLogEnabled}
-        setIsRegexEnabled={setIsRegexEnabled}
+        clearRequests={actions.clearRequests}
+        isInvertEnabled={state.isInvertEnabled}
+        isPreserveLogEnabled={state.isPreserveLogEnabled}
+        isRegexEnabled={state.isRegexEnabled}
+        setIsInvertEnabled={actions.setIsInvertEnabled}
+        setIsPreserveLogEnabled={actions.setIsPreserveLogEnabled}
+        setIsRegexEnabled={actions.setIsRegexEnabled}
       />
       <div className="requests-container">
         <div className="request-list-container">
-          <RequestList requests={requests} />
+          <RequestList
+            collapsed={!!state.selectedRequest}
+            requests={state.requests}
+            setSelectedRequest={actions.setSelectedRequest}
+          />
         </div>
-        <div className="request-details-container">
-          <RequestDetails />
-        </div>
+        {state.selectedRequest && (
+          <div className="request-details-container">
+            <RequestDetails request={state.selectedRequest} />
+          </div>
+        )}
       </div>
     </div>
   )

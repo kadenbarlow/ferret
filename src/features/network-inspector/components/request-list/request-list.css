@@ -4,9 +4,9 @@
 }
 
 .request {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
-  padding: 4px;
+  padding: 8px;
 }
 
 .request-even {
@@ -14,8 +14,15 @@
 }
 
 .request-list-column {
-  padding: 4px;
+  max-width: 25vw;
+  overflow: hidden;
+  padding: 8px;
+  text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.request-list-column-collapsed {
+  max-width: 15vw;
 }
 
 .request-list-header {

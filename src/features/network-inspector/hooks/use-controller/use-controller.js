@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react"
 
 export default function useController() {
-  const [requests, _setRequests] = useState([])
-  const [isPreserveLogEnabled, _setIsPreserveLogEnabled] = useState(
-    localStorage.getItem("isPreserveLogEnabled") === "true",
-  )
+  const localIsPreserveLogEnabled = localStorage.getItem("isPreserveLogEnabled") === "true"
+
   const [isInvertEnabled, setIsInvertEnabled] = useState(false)
+  const [isPreserveLogEnabled, _setIsPreserveLogEnabled] = useState(localIsPreserveLogEnabled)
   const [isRegexEnabled, setIsRegexEnabled] = useState(false)
+  const [requests, _setRequests] = useState([
+    { method: "OPTIONS", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
+    { method: "GET", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
+    { method: "POST", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
+    { method: "DELETE", size: "1.02kb", status: 200, time: "696ms", url: "https://exampleexampleexample.com" },
+  ])
+  const [selectedRequest, setSelectedRequest] = useState(null)
 
   useEffect(
     function initialize() {
@@ -21,7 +27,11 @@ export default function useController() {
     [isPreserveLogEnabled],
   )
 
-  const clearRequests = () => _setRequests([])
+  const clearRequests = () => {
+    _setRequests([])
+    setSelectedRequest(null)
+  }
+
   const setIsPreserveLogEnabled = (enabled) => {
     _setIsPreserveLogEnabled(enabled)
     localStorage.setItem("isPreserveLogEnabled", enabled)
@@ -33,12 +43,14 @@ export default function useController() {
       setIsInvertEnabled,
       setIsPreserveLogEnabled,
       setIsRegexEnabled,
+      setSelectedRequest,
     },
     state: {
       isInvertEnabled,
       isPreserveLogEnabled,
       isRegexEnabled,
       requests,
+      selectedRequest,
     },
   }
 }
