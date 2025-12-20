@@ -7,7 +7,7 @@ import styles from "./request-details.module.css"
 
 export default function RequestDetails(props) {
   const { clearSelectedRequest, request } = props
-  const { actions, state } = useController()
+  const { actions, state, tabs } = useController()
 
   return (
     <div className={styles.requestDetails}>
@@ -15,12 +15,12 @@ export default function RequestDetails(props) {
         activeTab={state.activeTab}
         clearSelectedRequest={clearSelectedRequest}
         setActiveTab={actions.setActiveTab}
-        tabs={state.tabs}
+        tabs={tabs}
       />
       <div className={styles.content}>
-        {state.activeTab === state.tabs.headers && <Headers request={request} />}
-        {state.activeTab === state.tabs.request && <Request request={request} />}
-        {state.activeTab === state.tabs.response && <Response request={request} />}
+        {state.activeTab === tabs.headers && <Headers request={request} />}
+        {state.activeTab === tabs.request && <Request request={request} />}
+        {state.activeTab === tabs.response && <Response request={request} />}
       </div>
     </div>
   )

@@ -1,11 +1,9 @@
-import { useState } from "react"
+import useActions from "#library/react/hooks/use-actions"
+import setter from "#library/react/reducers/setter"
 
 export default function useController() {
   const tabs = { headers: "Headers", request: "Request", response: "Response" }
-  const [activeTab, setActiveTab] = useState(tabs.response)
+  const { actions, state } = useActions({ activeTab: tabs.response }, { setActiveTab: setter("activeTab") })
 
-  return {
-    actions: { setActiveTab },
-    state: { activeTab, tabs },
-  }
+  return { actions, state, tabs }
 }

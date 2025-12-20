@@ -1,57 +1,47 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import useActions from "#library/react/hooks/use-actions"
+import append from "#library/react/reducers/append"
+import set from "#library/react/reducers/set"
+import setter from "#library/react/reducers/setter"
+import filterRequests from "./functions/filter-requests"
 
 export default function useController() {
-  const localIsPreserveLogEnabled = localStorage.getItem("isPreserveLogEnabled") === "true"
-
-  const [isInvertEnabled, setIsInvertEnabled] = useState(false)
-  const [isPreserveLogEnabled, _setIsPreserveLogEnabled] = useState(localIsPreserveLogEnabled)
-  const [isRegexEnabled, setIsRegexEnabled] = useState(false)
-  const [requests, _setRequests] = useState([])
-  const [selectedRequest, setSelectedRequest] = useState(null)
+  const { actions, state } = useActions(
+    {
+      isInvertEnabled: false,
+      isPreserveLogEnabled: localStorage.getItem("isPreserveLogEnabled") === "true",
+      isRegexEnabled: false,
+      requests: [],
+      selectedRequest: null,
+    },
+    {
+      appendRequest: append("requests"),
+      clearRequests: set("requests", []),
+      clearSelectedRequest: set("setSelectedRequest", null),
+      filterRequests,
+      setIsInvertEnabled: setter("isInvertEnabled"),
+      setIsPreserveLogEnabled: setter("isPreserveLogEnabled"),
+      setIsRegexEnabled: setter("isRegexEnabled"),
+      setSelectedRequest: setter("selectedRequest"),
+    },
+  )
 
   useEffect(
     function initialize() {
       const handler = (event) => {
-        if (event.data?.type === "REQUEST") _setRequests((prev) => [...prev, event.data.payload])
-        else if (event.data?.type === "NAVIGATION" && !isPreserveLogEnabled) _setRequests([])
+        if (event.data?.type === "REQUEST") actions.appendRequest(event.data.payload)
+        else if (event.data?.type === "NAVIGATION" && !state.isPreserveLogEnabled) actions.clearRequests()
       }
 
       window.addEventListener("message", handler)
       return () => window.removeEventListener("message", handler)
     },
-    [isPreserveLogEnabled],
+    [state.isPreserveLogEnabled, actions],
   )
 
-  const clearRequests = () => {
-    _setRequests([])
-    setSelectedRequest(null)
-  }
+  useEffect(() => {
+    localStorage.setItem("isPreserveLogEnabled", state.isPreserveLogEnabled)
+  }, [state.isPreserveLogEnabled])
 
-  const clearSelectedRequest = () => setSelectedRequest(null)
-
-  const setIsPreserveLogEnabled = (enabled) => {
-    _setIsPreserveLogEnabled(enabled)
-    localStorage.setItem("isPreserveLogEnabled", enabled)
-  }
-
-  const filterRequests = (value) => console.log(value)
-
-  return {
-    actions: {
-      clearRequests,
-      clearSelectedRequest,
-      filterRequests,
-      setIsInvertEnabled,
-      setIsPreserveLogEnabled,
-      setIsRegexEnabled,
-      setSelectedRequest,
-    },
-    state: {
-      isInvertEnabled,
-      isPreserveLogEnabled,
-      isRegexEnabled,
-      requests,
-      selectedRequest,
-    },
-  }
+  return { actions, state }
 }
