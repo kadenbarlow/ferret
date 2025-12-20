@@ -23,7 +23,7 @@ export default function NetworkInspector() {
         <div className={styles.requestList}>
           <RequestList
             collapsed={!!state.selectedRequest}
-            requests={state.requests}
+            requests={state.filteredRequests.length ? state.filteredRequests : state.requests}
             selectedRequest={state.selectedRequest}
             setSelectedRequest={actions.setSelectedRequest}
           />

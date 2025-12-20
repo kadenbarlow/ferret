@@ -3,11 +3,13 @@ import useActions from "#library/react/hooks/use-actions"
 import append from "#library/react/reducers/append"
 import set from "#library/react/reducers/set"
 import setter from "#library/react/reducers/setter"
+import clearRequests from "./functions/clear-requests"
 import filterRequests from "./functions/filter-requests"
 
 export default function useController() {
   const { actions, state } = useActions(
     {
+      filteredRequests: [],
       isInvertEnabled: false,
       isPreserveLogEnabled: localStorage.getItem("isPreserveLogEnabled") === "true",
       isRegexEnabled: false,
@@ -16,8 +18,8 @@ export default function useController() {
     },
     {
       appendRequest: append("requests"),
-      clearRequests: set("requests", []),
-      clearSelectedRequest: set("setSelectedRequest", null),
+      clearRequests,
+      clearSelectedRequest: set("selectedRequest", null),
       filterRequests,
       setIsInvertEnabled: setter("isInvertEnabled"),
       setIsPreserveLogEnabled: setter("isPreserveLogEnabled"),
