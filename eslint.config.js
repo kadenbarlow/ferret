@@ -38,6 +38,15 @@ export default defineConfig([
       "no-unused-vars": "off",
       "perfectionist/sort-named-exports": "error",
       "perfectionist/sort-objects": "error",
+      "react/jsx-sort-props": [
+        "error",
+        {
+          callbacksLast: true,
+          noSortAlphabetically: false,
+          reservedFirst: true,
+          shorthandFirst: true,
+        },
+      ],
       "react/jsx-uses-react": "error",
       "react/jsx-uses-vars": "error",
       "sort-destructure-keys/sort-destructure-keys": "error",

@@ -1,13 +1,13 @@
 .request {
-  font-size: 14px;
   margin: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
   padding: 8px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
 }
 
 .body {
+  margin: 0;
   white-space: pre-wrap;
   word-break: break-all;
-  margin: 0;
 }

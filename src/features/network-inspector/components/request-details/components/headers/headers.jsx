@@ -9,7 +9,10 @@ export default function Headers(props) {
       {request.requestHeaders && (
         <div>
           {request.requestHeaders.map(({ name, value }, index) => (
-            <div className={styles.header} key={index}>
+            <div
+              key={index}
+              className={styles.header}
+            >
               <span className={styles.headerName}>{name}</span>: {value}
             </div>
           ))}
@@ -19,7 +22,10 @@ export default function Headers(props) {
       {request.responseHeaders && (
         <div>
           {request.responseHeaders.map(({ name, value }, index) => (
-            <div className={styles.header} key={index}>
+            <div
+              key={index}
+              className={styles.header}
+            >
               <span className={styles.headerName}>{name}</span>: {value}
             </div>
           ))}

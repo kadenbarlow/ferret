@@ -7,14 +7,17 @@ export default function Checkbox(props) {
   return (
     <div className={styles.container}>
       <input
-        id={id}
         className={styles.input}
         defaultChecked={value}
+        id={id}
         name={name}
-        onChange={(e) => onChange(e.target.checked)}
         type="checkbox"
+        onChange={(e) => onChange(e.target.checked)}
       />
-      <label className={styles.label} htmlFor={id}>
+      <label
+        className={styles.label}
+        htmlFor={id}
+      >
         {label}
       </label>
     </div>

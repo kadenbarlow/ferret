@@ -8,9 +8,18 @@ export default function Tabs(props) {
 
   return (
     <div className={styles.tabs}>
-      <Button className={styles.button} icon={XMarkIcon} onClick={clearSelectedRequest} />
+      <Button
+        className={styles.button}
+        icon={XMarkIcon}
+        onClick={clearSelectedRequest}
+      />
       {Object.entries(tabs).map(([key, tab]) => (
-        <Tab active={activeTab === tab} key={key} label={tab} onClick={() => setActiveTab(tab)} />
+        <Tab
+          key={key}
+          active={activeTab === tab}
+          label={tab}
+          onClick={() => setActiveTab(tab)}
+        />
       ))}
     </div>
   )

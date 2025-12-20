@@ -30,7 +30,10 @@ export default function NetworkInspector() {
         </div>
         {state.selectedRequest && (
           <div className={styles.requestDetails}>
-            <RequestDetails request={state.selectedRequest} clearSelectedRequest={actions.clearSelectedRequest} />
+            <RequestDetails
+              clearSelectedRequest={actions.clearSelectedRequest}
+              request={state.selectedRequest}
+            />
           </div>
         )}
       </div>

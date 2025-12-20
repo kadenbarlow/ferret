@@ -1,7 +1,7 @@
 .table {
   border-collapse: collapse;
-  table-layout: auto;
   width: 100%;
+  table-layout: auto;
 }
 
 .headers {
@@ -9,18 +9,18 @@
 }
 
 .header {
-  border-left: 1px solid #4f4f4f;
   border-right: 1px solid #4f4f4f;
-  font-size: 14px;
-  font-weight: 700;
+  border-left: 1px solid #4f4f4f;
   padding: 8px;
+  font-weight: 700;
+  font-size: 14px;
   text-align: left;
 }
 
 .row {
-  font-size: 12px;
-  font-weight: 500;
   padding: 8px;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .row:hover {
@@ -28,8 +28,8 @@
 }
 
 .column {
-  overflow: hidden;
   padding: 8px;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

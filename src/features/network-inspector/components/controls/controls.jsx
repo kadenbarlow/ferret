@@ -18,15 +18,31 @@ export default function Controls(props) {
 
   return (
     <div className={styles.controls}>
-      <Button icon={NoSymbolIcon} onClick={clearRequests} />
-      <Searchbar filterRequests={filterRequests} placeholder={"Search"} />
-      <Checkbox label={"Invert"} name={"invert"} onChange={setIsInvertEnabled} value={isInvertEnabled} />
-      <Checkbox label={"Regex"} name={"regex"} onChange={setIsRegexEnabled} value={isRegexEnabled} />
+      <Button
+        icon={NoSymbolIcon}
+        onClick={clearRequests}
+      />
+      <Searchbar
+        filterRequests={filterRequests}
+        placeholder={"Search"}
+      />
+      <Checkbox
+        label={"Invert"}
+        name={"invert"}
+        value={isInvertEnabled}
+        onChange={setIsInvertEnabled}
+      />
+      <Checkbox
+        label={"Regex"}
+        name={"regex"}
+        value={isRegexEnabled}
+        onChange={setIsRegexEnabled}
+      />
       <Checkbox
         label={"Preserve Log"}
         name={"preserveLog"}
-        onChange={setIsPreserveLogEnabled}
         value={isPreserveLogEnabled}
+        onChange={setIsPreserveLogEnabled}
       />
     </div>
   )

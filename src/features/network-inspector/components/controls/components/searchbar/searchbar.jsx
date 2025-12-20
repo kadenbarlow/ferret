@@ -8,9 +8,9 @@ export default function Searchbar(props) {
     <div>
       <input
         className="searchbar-input"
-        onChange={debounce((e) => filterRequests(e.target.value), 300)}
         placeholder={placeholder}
         type="text"
+        onChange={debounce((e) => filterRequests(e.target.value), 300)}
       />
     </div>
   )

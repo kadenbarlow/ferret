@@ -1,8 +1,8 @@
 .controls {
   display: flex;
   flex-direction: row;
-  gap: 8px;
   align-items: center;
-  padding: 8px;
+  gap: 8px;
   border-bottom: 1px solid #4f4f4f;
+  padding: 8px;
 }
