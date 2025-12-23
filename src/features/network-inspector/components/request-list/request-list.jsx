@@ -8,7 +8,7 @@ export default function RequestList(props) {
 
   return (
     <table className={styles.table}>
-      <thead className={classnames([styles.headers, styles.row])}>
+      <thead className={styles.row}>
         <tr>
           <th className={styles.header}>URL</th>
           {!collapsed && <th className={styles.header}>Status</th>}
@@ -36,8 +36,8 @@ export default function RequestList(props) {
             </td>
             {!collapsed && <td className={styles.column}>{request.status}</td>}
             {!collapsed && <td className={styles.column}>{request.method}</td>}
-            {!collapsed && <td className={styles.column}>{request.size}</td>}
-            {!collapsed && <td className={styles.column}>{request.time}</td>}
+            {!collapsed && <td className={styles.column}>{(request.size / 1024).toFixed(2)} kb</td>}
+            {!collapsed && <td className={styles.column}>{request.time.toFixed(2)} ms</td>}
           </tr>
         ))}
       </tbody>

@@ -12,7 +12,7 @@ chrome.devtools.panels.create("Ferret", null, "index.html", (panel) => {
               requestHeaders: request.request.headers || {},
               responseBody: body,
               responseHeaders: request.response.headers || {},
-              size: request.request.bodySize,
+              size: request.response._transferSize,
               status: request.response.status,
               time: request.time,
               url: request.request.url,

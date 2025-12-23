@@ -4,13 +4,14 @@
   table-layout: auto;
 }
 
-.headers {
-  border-bottom: 1px solid #4f4f4f;
-}
-
 .header {
-  border-right: 1px solid #4f4f4f;
-  border-left: 1px solid #4f4f4f;
+  position: sticky;
+  top: 0;
+  box-shadow:
+    inset 1px 0 0 #4f4f4f,
+    inset -1px 0 0 #4f4f4f,
+    inset 0 -1px 0 #4f4f4f;
+  background-color: #282828;
   padding: 8px;
   font-weight: 700;
   font-size: 14px;

@@ -2,9 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "checkJs": true,
+    "jsx": "preserve",
     "paths": {
       "#library/*": ["src/library/*"]
-    }
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src/**/*"]
 }
