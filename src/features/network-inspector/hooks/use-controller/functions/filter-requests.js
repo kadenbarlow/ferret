@@ -1,7 +1,7 @@
 import Fuse from "fuse.js"
 
 export default function filterRequests(state, search) {
-  if (!search) return { ...state, filteredRequests: [] }
+  if (!search) return { ...state, filteredRequests: [], matches: [], selectedMatchIndex: 0 }
 
   const fuse = new Fuse(state.requests, {
     ignoreLocation: true,
