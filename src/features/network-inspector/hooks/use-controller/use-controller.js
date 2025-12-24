@@ -16,6 +16,7 @@ export default function useController() {
       isRegexEnabled: false,
       matches: [],
       requests: [],
+      selectedMatch: null,
       selectedMatchIndex: 0,
       selectedRequest: null,
     },

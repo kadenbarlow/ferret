@@ -6,8 +6,8 @@ import useController from "./hooks/use-controller/use-controller"
 import styles from "./request-details.module.css"
 
 export default function RequestDetails(props) {
-  const { clearSelectedRequest, request } = props
-  const { actions, state, tabs } = useController()
+  const { clearSelectedRequest, request, selectedMatch } = props
+  const { actions, state, tabs } = useController(props)
 
   return (
     <div className={styles.requestDetails}>
@@ -18,9 +18,24 @@ export default function RequestDetails(props) {
         tabs={tabs}
       />
       <div className={styles.content}>
-        {state.activeTab === tabs.headers && <Headers request={request} />}
-        {state.activeTab === tabs.request && <Request request={request} />}
-        {state.activeTab === tabs.response && <Response request={request} />}
+        {state.activeTab === tabs.headers && (
+          <Headers
+            match={selectedMatch}
+            request={request}
+          />
+        )}
+        {state.activeTab === tabs.request && (
+          <Request
+            match={selectedMatch}
+            request={request}
+          />
+        )}
+        {state.activeTab === tabs.response && (
+          <Response
+            match={selectedMatch}
+            request={request}
+          />
+        )}
       </div>
     </div>
   )

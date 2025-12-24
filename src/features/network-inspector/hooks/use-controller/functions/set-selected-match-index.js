@@ -6,6 +6,7 @@ export default function setSelectedMatchIndex(state, index) {
 
   return {
     ...state,
+    selectedMatch: matches[index],
     selectedMatchIndex: index,
     selectedRequest: filteredRequests.find((request) => request.id === matches[index].id) || null,
   }

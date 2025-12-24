@@ -36,6 +36,7 @@ export default function NetworkInspector() {
             <RequestDetails
               clearSelectedRequest={actions.clearSelectedRequest}
               request={state.selectedRequest}
+              selectedMatch={state.selectedMatch}
             />
           </div>
         )}
