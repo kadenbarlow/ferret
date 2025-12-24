@@ -6,10 +6,18 @@ export default function filterRequests(state, search) {
   const fuse = new Fuse(state.requests, {
     ignoreLocation: true,
     includeMatches: true,
-    keys: ["responseBody"],
+    keys: ["responseBody", "status", "postData", "method", "requestHeaders", "responseHeaders", "url"],
     shouldSort: true,
+    threshold: 0.1,
   })
-  const filteredRequests = fuse.search(search)
+  const searchResults = fuse.search(search)
+  const filteredRequests = searchResults.map(({ item }) => item)
 
-  return { ...state, filteredRequests: filteredRequests.map(({ item }) => item) }
+  return {
+    ...state,
+    filteredRequests,
+    matches: searchResults.flatMap(({ item, matches }) => matches.map((match) => ({ id: item.id, ...match }))),
+    selectedMatchIndex: 0,
+    selectedRequest: filteredRequests[0],
+  }
 }

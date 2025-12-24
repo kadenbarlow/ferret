@@ -15,9 +15,12 @@ export default function NetworkInspector() {
         isInvertEnabled={state.isInvertEnabled}
         isPreserveLogEnabled={state.isPreserveLogEnabled}
         isRegexEnabled={state.isRegexEnabled}
+        matches={state.matches}
+        selectedMatchIndex={state.selectedMatchIndex}
         setIsInvertEnabled={actions.setIsInvertEnabled}
         setIsPreserveLogEnabled={actions.setIsPreserveLogEnabled}
         setIsRegexEnabled={actions.setIsRegexEnabled}
+        setSelectedMatchIndex={actions.setSelectedMatchIndex}
       />
       <div className={styles.requests}>
         <div className={styles.requestList}>

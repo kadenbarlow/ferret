@@ -5,6 +5,7 @@ import set from "#library/react/reducers/set"
 import setter from "#library/react/reducers/setter"
 import clearRequests from "./functions/clear-requests"
 import filterRequests from "./functions/filter-requests"
+import setSelectedMatchIndex from "./functions/set-selected-match-index"
 
 export default function useController() {
   const { actions, state } = useActions(
@@ -13,7 +14,9 @@ export default function useController() {
       isInvertEnabled: false,
       isPreserveLogEnabled: localStorage.getItem("isPreserveLogEnabled") === "true",
       isRegexEnabled: false,
+      matches: [],
       requests: [],
+      selectedMatchIndex: 0,
       selectedRequest: null,
     },
     {
@@ -24,6 +27,7 @@ export default function useController() {
       setIsInvertEnabled: setter("isInvertEnabled"),
       setIsPreserveLogEnabled: setter("isPreserveLogEnabled"),
       setIsRegexEnabled: setter("isRegexEnabled"),
+      setSelectedMatchIndex,
       setSelectedRequest: setter("selectedRequest"),
     },
   )

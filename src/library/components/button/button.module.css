@@ -5,8 +5,17 @@
   padding: 4px;
 }
 
+.button:active {
+  transform: scale(0.95);
+}
+
 .button:hover {
   opacity: 0.8;
   cursor: pointer;
   background-color: #4f4f4f;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }

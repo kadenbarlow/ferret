@@ -1,4 +1,4 @@
-export default function XMarkIcon(props) {
+export default function ChevronUpIcon(props) {
   const { height, width } = props
 
   return (
@@ -12,7 +12,7 @@ export default function XMarkIcon(props) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 18 18 6M6 6l12 12"
+        d="m4.5 15.75 7.5-7.5 7.5 7.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
