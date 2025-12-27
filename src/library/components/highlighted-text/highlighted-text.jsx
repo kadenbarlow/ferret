@@ -1,15 +1,28 @@
+import { useEffect, useRef } from "react"
 import styles from "./highlighted-text.module.css"
 
-export default function HighlightedText(props) {
-  const { content, enabled, end, start } = props
+export default function HighlightedText({ content, enabled, end, start }) {
+  const highlight = useRef(null)
 
-  if (!enabled) return <span>{content}</span>
+  useEffect(() => {
+    if (enabled) {
+      highlight.current.scrollIntoView({
+        behavior: "instant",
+        block: "center",
+      })
+    }
+  }, [enabled, start, end])
 
   return (
     <span>
-      {content.slice(0, start)}
-      <span className={styles.highlighted}>{content.slice(start, end + 1)}</span>
-      {content.slice(end + 1)}
+      {content?.slice(0, enabled ? start : -1)}
+      <span
+        ref={highlight}
+        className={styles.highlighted}
+      >
+        {enabled ? content?.slice(start, end + 1) : ""}
+      </span>
+      {enabled ? content?.slice(end + 1) : ""}
     </span>
   )
 }

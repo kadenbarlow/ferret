@@ -5,7 +5,7 @@ function findMatches(content, search, { id, key, path, type }) {
 }
 
 export default function filterRequests(state, search) {
-  if (!search) return { ...state, filteredRequests: [], matches: [], selectedMatchIndex: 0 }
+  if (!search) return { ...state, filteredRequests: [], matches: [], selectedMatch: null, selectedMatchIndex: 0 }
 
   const { filteredRequests, matches } = state.requests.reduce(
     (acc, request) => {
