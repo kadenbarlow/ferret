@@ -1,36 +1,24 @@
+import HeaderList from "./components/header-list/header-list"
 import styles from "./headers.module.css"
 
 export default function Headers(props) {
-  const { request } = props
+  const { match, request } = props
 
   return (
     <div>
       <div className={styles.subtitle}>Request Headers</div>
-      {request.requestHeaders && (
-        <div>
-          {request.requestHeaders.map(({ name, value }, index) => (
-            <div
-              key={index}
-              className={styles.header}
-            >
-              <span className={styles.headerName}>{name}</span>: {value}
-            </div>
-          ))}
-        </div>
-      )}
+      <HeaderList
+        headers={request.requestHeaders}
+        match={match}
+        type="requestHeaders"
+      />
+
       <div className={styles.subtitle}>Response Headers</div>
-      {request.responseHeaders && (
-        <div>
-          {request.responseHeaders.map(({ name, value }, index) => (
-            <div
-              key={index}
-              className={styles.header}
-            >
-              <span className={styles.headerName}>{name}</span>: {value}
-            </div>
-          ))}
-        </div>
-      )}
+      <HeaderList
+        headers={request.responseHeaders}
+        match={match}
+        type="responseHeaders"
+      />
     </div>
   )
 }

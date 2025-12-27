@@ -17,6 +17,7 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
+        ...globals.node,
         ...globals.webextensions,
         __dirname: false,
       },

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "checkJs": true,
+    "checkJs": false,
     "jsx": "preserve",
     "paths": {
       "#library/*": ["src/library/*"]

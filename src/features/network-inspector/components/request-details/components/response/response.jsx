@@ -1,10 +1,17 @@
-import parseJson from "#library/json/parse-json"
+import HighlightedText from "#library/components/highlighted-text/highlighted-text"
 import styles from "./response.module.css"
 
 export default function Response(props) {
-  const { request } = props
-  const jsonResponse = parseJson(request.responseBody)
+  const { match, request } = props
 
-  if (!jsonResponse) return <pre className={styles.response}>{request.responseBody}</pre>
-  else return <pre className={styles.response}>{JSON.stringify(jsonResponse, null, 2)}</pre>
+  return (
+    <pre className={styles.response}>
+      <HighlightedText
+        content={request.responseBody}
+        enabled={match?.key === "responseBody"}
+        end={match?.end}
+        start={match?.start}
+      />
+    </pre>
+  )
 }

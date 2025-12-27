@@ -19,12 +19,12 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "console": "node --watch scripts/console.js",
     "dev:extension": "vite build --watch",
     "dev:server": "vite",
     "prepare": "husky"
   },
   "dependencies": {
-    "fuse.js": "^7.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

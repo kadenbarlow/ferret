@@ -1,0 +1,12 @@
+.header {
+  padding-left: 12px;
+}
+
+.headerName {
+  font-weight: 700;
+}
+
+.highlighted {
+  background-color: #ffff00;
+  color: black;
+}
