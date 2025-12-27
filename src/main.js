@@ -21,6 +21,7 @@ chrome.devtools.panels.create("Ferret", null, "index.html", (panel) => {
 
           window.postMessage({
             payload: {
+              contentType,
               id: crypto.randomUUID(),
               method: request.request.method,
               postData: jsonPostData ? JSON.stringify(jsonPostData, null, 2) : postData,

@@ -5,8 +5,24 @@
 .tabs {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #4f4f4f;
   font-weight: 500;
   font-size: 14px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 6px;
 }

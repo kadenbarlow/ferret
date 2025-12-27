@@ -6,7 +6,7 @@ export default function ChevronUpIcon(props) {
       fill="none"
       height={height || 24}
       stroke="currentColor"
-      stroke-width="1.5"
+      strokeWidth="1.5"
       viewBox="0 0 24 24"
       width={width || 24}
       xmlns="http://www.w3.org/2000/svg"

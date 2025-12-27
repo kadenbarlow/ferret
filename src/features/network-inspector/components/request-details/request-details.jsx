@@ -14,6 +14,11 @@ export default function RequestDetails(props) {
       <Tabs
         activeTab={state.activeTab}
         clearSelectedRequest={clearSelectedRequest}
+        copy={actions.copy}
+        copyRequestAsCurl={actions.copyRequestAsCurl}
+        copyRequestAsFetch={actions.copyRequestAsFetch}
+        formattedCopyByTab={state.formattedCopyByTab}
+        request={request}
         setActiveTab={actions.setActiveTab}
         tabs={tabs}
       />
