@@ -9,8 +9,11 @@ function parseJson(jsonString) {
 chrome.devtools.panels.create("Ferret", null, "index.html", (panel) => {
   panel.onShown.addListener((window) => {
     chrome.devtools.network.onRequestFinished.addListener((request) => {
+      const isFetch = request._resourceType === "fetch" || request._resourceType === "xhr"
       const contentType = request.response.content.mimeType
-      if (["json", "text", "xml", "graphql", "form"].some((type) => contentType.includes(type))) {
+      const isValidContent = ["json", "xml", "graphql"].some((type) => contentType.includes(type))
+
+      if (isFetch && isValidContent) {
         request.getContent((body) => {
           const postData = request.request.postData?.text || null
           const jsonPostData = parseJson(postData)
