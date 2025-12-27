@@ -1,8 +1,7 @@
-import debounce from "#library/functions/debounce"
 import "./searchbar.css"
 
 export default function Searchbar(props) {
-  const { filterRequests, placeholder } = props
+  const { filter, placeholder, setFilter } = props
 
   return (
     <div>
@@ -10,7 +9,8 @@ export default function Searchbar(props) {
         className="searchbar-input"
         placeholder={placeholder}
         type="text"
-        onChange={debounce((e) => filterRequests(e.target.value), 300)}
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
       />
     </div>
   )

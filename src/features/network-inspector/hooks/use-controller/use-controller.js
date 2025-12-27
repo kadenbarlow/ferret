@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import debounce from "#library/functions/debounce"
 import useActions from "#library/react/hooks/use-actions"
 import append from "#library/react/reducers/append"
 import set from "#library/react/reducers/set"
@@ -6,14 +7,14 @@ import setter from "#library/react/reducers/setter"
 import clearRequests from "./functions/clear-requests"
 import filterRequests from "./functions/filter-requests"
 import setSelectedMatchIndex from "./functions/set-selected-match-index"
+import setSelectedRequest from "./functions/set-selected-request"
 
 export default function useController() {
   const { actions, state } = useActions(
     {
+      filter: "",
       filteredRequests: [],
-      isInvertEnabled: false,
       isPreserveLogEnabled: localStorage.getItem("isPreserveLogEnabled") === "true",
-      isRegexEnabled: false,
       matches: [],
       requests: [],
       selectedMatch: null,
@@ -25,12 +26,16 @@ export default function useController() {
       clearRequests,
       clearSelectedRequest: set("selectedRequest", null),
       filterRequests,
-      setIsInvertEnabled: setter("isInvertEnabled"),
+      setFilter: setter("filter"),
       setIsPreserveLogEnabled: setter("isPreserveLogEnabled"),
-      setIsRegexEnabled: setter("isRegexEnabled"),
       setSelectedMatchIndex,
-      setSelectedRequest: setter("selectedRequest"),
+      setSelectedRequest,
     },
+  )
+
+  useEffect(
+    debounce(() => actions.filterRequests(state), 300),
+    [state.filter, state.requests],
   )
 
   useEffect(

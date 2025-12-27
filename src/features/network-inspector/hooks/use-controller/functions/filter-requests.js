@@ -1,24 +1,25 @@
 import occurrencesOf from "#library/strings/occurrences-of"
 
-function findMatches(content, search, { id, key, path, type }) {
-  return occurrencesOf(content, search).map(([start, end]) => ({ end, id, key, path, start, type }))
+function findMatches(content, filter, { id, key, path, type }) {
+  return occurrencesOf(content, filter).map(([start, end]) => ({ end, id, key, path, start, type }))
 }
 
-export default function filterRequests(state, search) {
-  if (!search) return { ...state, filteredRequests: [], matches: [], selectedMatch: null, selectedMatchIndex: 0 }
+export default function filterRequests(state) {
+  const { filter } = state
+  if (!filter) return { ...state, filteredRequests: [], matches: [], selectedMatch: null, selectedMatchIndex: 0 }
 
   const { filteredRequests, matches } = state.requests.reduce(
     (acc, request) => {
       const { id } = request
       const textKeys = ["responseBody", "postData", "method", "url"]
-      const matches = textKeys.flatMap((key) => findMatches(request[key], search, { id, key }))
+      const matches = textKeys.flatMap((key) => findMatches(request[key], filter, { id, key }))
 
       const headerKeys = ["requestHeaders", "responseHeaders"]
       const headerMatches = headerKeys.flatMap((key) => {
         const headers = request[key]
         return [
-          ...headers.flatMap((h) => findMatches(h.name, search, { id, key, path: [key, h.name], type: "name" })),
-          ...headers.flatMap((h) => findMatches(h.value, search, { id, key, path: [key, h.name], type: "value" })),
+          ...headers.flatMap((h) => findMatches(h.name, filter, { id, key, path: [key, h.name], type: "name" })),
+          ...headers.flatMap((h) => findMatches(h.value, filter, { id, key, path: [key, h.name], type: "value" })),
         ]
       })
 

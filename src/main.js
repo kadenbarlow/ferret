@@ -10,7 +10,7 @@ chrome.devtools.panels.create("Ferret", null, "index.html", (panel) => {
   panel.onShown.addListener((window) => {
     chrome.devtools.network.onRequestFinished.addListener((request) => {
       const contentType = request.response.content.mimeType
-      if (contentType?.includes("application/json")) {
+      if (["json", "text", "xml", "graphql", "form"].some((type) => contentType.includes(type))) {
         request.getContent((body) => {
           const postData = request.request.postData?.text || null
           const jsonPostData = parseJson(postData)

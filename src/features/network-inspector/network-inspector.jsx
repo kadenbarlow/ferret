@@ -11,22 +11,19 @@ export default function NetworkInspector() {
     <div className={styles.root}>
       <Controls
         clearRequests={actions.clearRequests}
-        filterRequests={actions.filterRequests}
-        isInvertEnabled={state.isInvertEnabled}
+        filter={state.filter}
         isPreserveLogEnabled={state.isPreserveLogEnabled}
-        isRegexEnabled={state.isRegexEnabled}
         matches={state.matches}
         selectedMatchIndex={state.selectedMatchIndex}
-        setIsInvertEnabled={actions.setIsInvertEnabled}
+        setFilter={actions.setFilter}
         setIsPreserveLogEnabled={actions.setIsPreserveLogEnabled}
-        setIsRegexEnabled={actions.setIsRegexEnabled}
         setSelectedMatchIndex={actions.setSelectedMatchIndex}
       />
       <div className={styles.requests}>
         <div className={styles.requestList}>
           <RequestList
             collapsed={!!state.selectedRequest}
-            requests={state.filteredRequests.length ? state.filteredRequests : state.requests}
+            requests={state.filter ? state.filteredRequests : state.requests}
             selectedRequest={state.selectedRequest}
             setSelectedRequest={actions.setSelectedRequest}
           />

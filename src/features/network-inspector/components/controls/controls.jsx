@@ -9,15 +9,12 @@ import styles from "./controls.module.css"
 export default function Controls(props) {
   const {
     clearRequests,
-    filterRequests,
-    isInvertEnabled,
+    filter,
     isPreserveLogEnabled,
-    isRegexEnabled,
     matches,
     selectedMatchIndex,
-    setIsInvertEnabled,
+    setFilter,
     setIsPreserveLogEnabled,
-    setIsRegexEnabled,
     setSelectedMatchIndex,
   } = props
 
@@ -29,20 +26,9 @@ export default function Controls(props) {
           onClick={clearRequests}
         />
         <Searchbar
-          filterRequests={filterRequests}
+          filter={filter}
           placeholder={"Search"}
-        />
-        <Checkbox
-          label={"Invert"}
-          name={"invert"}
-          value={isInvertEnabled}
-          onChange={setIsInvertEnabled}
-        />
-        <Checkbox
-          label={"Regex"}
-          name={"regex"}
-          value={isRegexEnabled}
-          onChange={setIsRegexEnabled}
+          setFilter={setFilter}
         />
         <Checkbox
           label={"Preserve Log"}
