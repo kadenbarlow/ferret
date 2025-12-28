@@ -1,6 +1,6 @@
 {
   "name": "ferret",
-  "description": "A simple and clean network inspector for JSON responses.",
+  "description": "A network inspector with ability to search through headers, request and response bodies of Fetch/XHR requests.",
   "author": "Kaden Barlow <kadenbarlow@gmail.com> (https://kadenbarlow.dev)",
   "version": "0.1.0",
   "license": "MIT",
