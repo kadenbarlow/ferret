@@ -27,9 +27,9 @@ Key features include:
 Ferret hasn't been added to the Chrome store yet, in the meantime, it can be installed for now by downloading the latest
 release from Github and then manually installing in Chrome.
 
-1. Download the latest release [here](https://github.com/kadenbarlow/ferret/releases)
-1. Open [Chrome extensions](chrome://extensions/)
+1. Download the latest release [here](https://github.com/kadenbarlow/ferret/releases) and unzip
+1. Open chrome://extensions/
 1. Enable developer mode in the top right corner
-1. Click "Load unpacked" in the top left corner and navigate to the `.crx` file you downloaded in step 1.
+1. Click "Load unpacked" in the top left corner and navigate to the directory you unzipped in step 1
 1. Happy ferreting!
 
